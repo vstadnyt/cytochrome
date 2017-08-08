@@ -29,6 +29,8 @@ FE: 18.243, 11.031, 16.509
 
 ***PDB file nane of the structure:***
 PDB1ZRT - this is cytochrome bc1 bacterial 
+http://www.rcsb.org/pdb/explore.do?structureId=1ZRT
+
 ***you can type anything below this line**
 ***other comments***
 if you want to change the file, makes sure to not change the appearence of this file. The file read function is specifically design to read only this file format and structure.
