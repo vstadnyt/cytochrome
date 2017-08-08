@@ -9,7 +9,7 @@ The cytochrome project library for calculations of spectroscopic properies durin
 The author of this library is Valentyn Stadnytskyi, <v.stadnytskyi|gmail|com>. Please feel free to contact me if you have any questions
 
 
-This library was produced as a part of Ph.D. thesis with Prof. Savikhin <sergei|purdue|edu> and Prof. Cramer <waclab|purdue|edu> at Purdue University
+This library was produced as a part of Valentyn Stadnytslyi's Ph.D. thesis work with Prof. Savikhin <sergei|purdue|edu> and Prof. Cramer <waclab|purdue|edu> at Purdue University
 
 please refer two these papers if you use any parts of this code in your research. 
 
