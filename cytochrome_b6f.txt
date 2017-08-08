@@ -28,18 +28,10 @@ ND: -32.348, 78.254, 48.234
 Fe: -33.444, 76.616, 47.474
 
 ***PDB file name of the structure:***
+PDB 4H44
+http://www.rcsb.org/pdb/explore/explore.do?structureId=4H44
 
 ***you can type anything below this line**
 ***other comments***
 if you want to change the file, makes sure to not change the appearence of this file. The file read function is specifically design to read only this file format and structure.
 
-
-cyt_b6f = []
-for excl in exclusions_lst:
-    cyt_b6f.append(cyt('cytochrome_b6f.txt',excl))
-fir i in range(len(exclusions_lst))
-    cyt_b6f[i].read_structure_file()
-    cyt_b6f[i].Hamiltonian()
-    cyt_b6f[i].D_and_R_strength()
-	cyt_b6f[i].spectra_plot()
-  
