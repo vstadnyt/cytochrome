@@ -19,9 +19,10 @@ print version
 exclusions_lst = []
 exclusions_lst.append([0,0,0,0,0,0,0,0])
 exclusions_lst.append([0,0,1,1,0,0,0,0])
-exclusions_lst.append([0,0,1,1,0,0,1,1])
+exclusions_lst.append([1,1,1,1,0,0,0,0])
 exclusions_lst.append([1,1,1,1,0,0,1,1])
 exclusions_lst.append([1,1,1,1,1,1,1,1])
+
 cyt_bc1_np = []
 for excl in exclusions_lst:
     cyt_bc1_np.append(cytochrome_lib.cyt('cytochrome_bc1.txt',excl))
@@ -34,7 +35,7 @@ for i in range(len(exclusions_lst)):
 exclusions_lst = []
 exclusions_lst.append([0,0,0,0,0,0,0,0])
 exclusions_lst.append([0,0,1,1,0,0,0,0])
-exclusions_lst.append([1,1,1,1,0,0,0,0])
+exclusions_lst.append([0,0,1,1,0,0,1,1])
 exclusions_lst.append([1,1,1,1,0,0,1,1])
 exclusions_lst.append([1,1,1,1,1,1,1,1])
 cyt_bc1_nn = []

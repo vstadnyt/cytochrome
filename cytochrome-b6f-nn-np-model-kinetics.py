@@ -16,10 +16,11 @@ print version
 
 ##This is a main part of a code
 #This part creates two lists of several instances of a cyt class (see cytochrome library) with different input files
+
 exclusions_lst = []
 exclusions_lst.append([0,0,0,0,0,0,0,0])
 exclusions_lst.append([0,0,1,1,0,0,0,0])
-exclusions_lst.append([0,0,1,1,0,0,1,1])
+exclusions_lst.append([1,1,1,1,0,0,0,0])
 exclusions_lst.append([1,1,1,1,0,0,1,1])
 exclusions_lst.append([1,1,1,1,1,1,1,1])
 cyt_b6f_np = []
@@ -30,11 +31,12 @@ for i in range(len(exclusions_lst)):
     cyt_b6f_np[i].Hamiltonian()
     cyt_b6f_np[i].D_and_R_strength()
     cyt_b6f_np[i].spectra_plot()
-
+	
+	
 exclusions_lst = []
 exclusions_lst.append([0,0,0,0,0,0,0,0])
 exclusions_lst.append([0,0,1,1,0,0,0,0])
-exclusions_lst.append([1,1,1,1,0,0,0,0])
+exclusions_lst.append([0,0,1,1,0,0,1,1])
 exclusions_lst.append([1,1,1,1,0,0,1,1])
 exclusions_lst.append([1,1,1,1,1,1,1,1])
 cyt_b6f_nn = []
