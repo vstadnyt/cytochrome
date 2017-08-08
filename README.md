@@ -6,10 +6,10 @@ The cytochrome project library for calculations of spectroscopic properies durin
 2)  Pathways of Transmembrane Electron Transfer in Cytochrome bc Complexes: Dielectric Heterogeneity and Interheme Coulombic Interactions S. Bhaduri, V. Stadnytskyi, S. D. Zakharov, S. Saif Hasan, L. Bujnowicz, M. Sarewicz, S. Savikhin, A. Osyczka, and W. A. Cramer The Journal of Physical Chemistry B 2017 121 (5), 975-983 DOI: 10.1021/acs.jpcb.6b11709
 
 
-The author of this library is Valentyn Stadnytskyi, v.stadnytskyi@gmail.com. Please feel free to contact me if you have any questions
+The author of this library is Valentyn Stadnytskyi, <v.stadnytskyi|gmail|com>. Please feel free to contact me if you have any questions
 
 
-This library was produced as a part of Ph.D. thesis with Prof. Savikhin sergei@purdue.edu and Prof. Cramer waclab@purdue.edu at Purdue University
+This library was produced as a part of Ph.D. thesis with Prof. Savikhin <sergei|purdue|edu> and Prof. Cramer <waclab|purdue|edu> at Purdue University
 
 please refer two these papers if you use any parts of this code in your research. 
 
