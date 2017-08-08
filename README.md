@@ -13,9 +13,8 @@ This library was produced as a part of Valentyn Stadnytslyi's Ph.D. thesis work 
 
 please refer two these papers if you use any parts of this code in your research. 
 
-####################################
-##IMPORTANT#########################
-####################################
-#This library was written and tested on:
-#Python 2.7.12 |Anaconda 4.1.1 (64-bit)| (default, Jun 29 2016, 11:07:13) [MSC v.1500 64 bit (AMD64)]
-####################################
+
+##IMPORTANT##
+This library was written and tested on:
+Python 2.7.12 |Anaconda 4.1.1 (64-bit)| (default, Jun 29 2016, 11:07:13) [MSC v.1500 64 bit (AMD64)]
+
