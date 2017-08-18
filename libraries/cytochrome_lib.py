@@ -184,5 +184,7 @@ def kinetics_solve(k, length):
         N[3,i+1] = N[3,i] + k34*N[2,i]*dt - k45*N[3,i]*dt + k24*N[1,i]*dt;
         N[4,i+1] = N[4,i] + k45*N[3,i]*dt + k35*N[2,i]*dt;
     return N
-
-print str_success,'--->', 'Current version:',str_version, '---> last update',str_date
+str_end = str_success+' ---> '+'Current version: '+str_version+' ---> last update '+str_date
+print '*'*len(str_end)
+print str_end
+print '*'*len(str_end)
