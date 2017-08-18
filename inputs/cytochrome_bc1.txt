@@ -1,0 +1,36 @@
+wavelength(nm): 433
+width(nm): 10
+
+***Coordinates:***
+***bp1***
+NA: -7.106, -7.186, 29.751
+NB: -4.644, -6.079, 30.071
+NC: -4.616, -6.794, 32.635
+ND: -7.171, -7.534, 32.393
+FE: -5.848, -6.881, 31.295
+***bn1***
+NA: 10.084, -5.421, 44.923
+NB: 7.783, -5.021, 43.974
+NC: 7.056, -3.457, 46.163
+ND: 9.505, -3.899, 47.201
+FE: 8.609, -4.422, 45.618
+***bp2***
+NA: -3.681, 6.272, 15.837
+NB: -1.610, 6.139, 17.507
+NC: -0.044, 7.107, 15.722
+ND: -2.005, 6.936, 13.999
+FE: -1.793, 6.634, 15.782
+***bn2***
+NA: 18.388, 12.316, 17.898
+NB: 16.403, 11.097, 16.954
+NC: 17.966, 9.730, 15.168
+ND: 20.097, 11.078, 16.118
+FE: 18.243, 11.031, 16.509
+
+***PDB file nane of the structure:***
+PDB1ZRT - this is cytochrome bc1 bacterial 
+http://www.rcsb.org/pdb/explore.do?structureId=1ZRT
+
+***you can type anything below this line**
+***other comments***
+if you want to change the file, makes sure to not change the appearence of this file. The file read function is specifically design to read only this file format and structure.
