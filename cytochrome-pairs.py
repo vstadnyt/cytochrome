@@ -85,7 +85,9 @@ for i in range(len(exclusions_lst)):
 
 plt.show()
 plt.savefig('pairs-cytochrome-b6f-bc1.jpg')
-print 'execution complete'
 
-
+str_end = 'execution of the script "cytochrome-pairs" is complete!'
+print '*'*len(str_end)
+print str_end
+print '*'*len(str_end)
 
