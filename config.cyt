@@ -1,0 +1,27 @@
+#This is a config file for cytochrome program. In general it should not be changed. If you want to change it please save the previous version, otherwise the program might not work.
+
+author: Valentyn Stadnytskyi
+email: v.stadnytskyi@gmail.com
+
+version: version 0.1alpha
+
+date: 8-15-2017
+
+input folder: \inputs
+
+<help>
+this program supports to main type of commands: get and run
+the 'get' will 
+
+type 'get help' to get help menu again
+type 'exit' to end the program
+<help> 
+
+<exit>
+exit
+<exit>
+
+<other>
+"this command is not recognized. 
+Please try another one or 'help' for more information"
+<other>
