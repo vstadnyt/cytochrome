@@ -41,7 +41,7 @@ def read_config_file(filename,method = None):
         
 class cyt(object):
      
-    def __init__(self, filename, exceptions):
+    def __init__(self, filename, exceptions, method = 'full'):
         for i in exceptions:
             if type(i) !=  int:
                 raise ValueError("values in the exception list have to be an integer but ",str(type(i))," is found")
@@ -56,14 +56,23 @@ class cyt(object):
         populated hemes defined by exceptions"""
         self.filename = filename
         self.exceptions = exceptions
-
+        if method == 'full':
+            self.read_structure_file()
+            self.Hamiltonian()
+            self.D_and_R_strength()
+            self.spectra_plot()
+        elif method == 'none':
+            print 'the caluclations of the Hamiltonian, Dipole and Rotational Strength were canceled by the user'
+        else:
+            print 'User used front method or the caluclations of the Hamiltonian, Dipole and Rotational Strength were canceled by the user'
     def read_structure_file(self):
         
         with open(self.filename, "r") as myfile:
             self.data=myfile.readlines()
         self.wavelength = float(self.data[0].partition('wavelength(nm):')[2])
-
-        self.width = float(self.data[1].partition('width(nm):')[2])
+        
+        self.width_nm = float(self.data[1].partition('width(nm):')[2])
+        self.width_cm = 10**7*self.width_nm/(self.wavelength**2)
 
         bp1 = np.zeros((5,3))
         bn1 = np.zeros((5,3))
@@ -82,7 +91,7 @@ class cyt(object):
             coord = self.data[23+i].partition(':')[2]
             bn2[i,:] = np.asarray([float(x) for x in coord.split(',')])
         self.coord = np.vstack([bp1,bn1,bp2,bn2])
-        return self.wavelength , self.width, self.coord
+        return self.wavelength , self.width_cm,self.width_nm, self.coord
 
 
     def Hamiltonian(self):
@@ -113,6 +122,9 @@ class cyt(object):
         exceptions_matrix = np.outer(self.exceptions,self.exceptions)
         self.Ham = np.multiply(self.Ham,exceptions_matrix)
         self.Eigenvalues, self.Eigenvectors = np.linalg.eig(self.Ham)
+        idx = self.Eigenvalues.argsort()[::-1]   
+        self.Eigenvalues, self.Eigenvectors = self.Eigenvalues[idx], self.Eigenvectors[:,idx]
+
         return self.Ham, self.Eigenvalues, self.Eigenvectors
     
     def D_and_R_strength(self):
@@ -141,20 +153,28 @@ class cyt(object):
                     self.RotationalS[e] = self.RotationalS[e] + self.Density_matrix[i,j,e] * self.Rotational_strength_matrix[i,j]
         return self.DipoleS, self.RotationalS
     
-    def spectra_plot(self):
-        
-        self.x_range_cm = np.linspace(22500, 23700, 400)
-        self.x_range_nm = range(400)
-        for i in range(len(self.x_range_cm)):
-            self.x_range_nm[i] = 10**7/self.x_range_cm[i]
-    
-        self.specD = np.zeros((8,len(self.x_range_cm)))
-        self.specR = np.zeros((8,len(self.x_range_cm)))
-        for i in range(8):
-            self.specD[i,:] = self.DipoleS[i]*np.exp(-np.power(self.x_range_cm - self.Eigenvalues[i], 2.) / (2 * np.power(221.38, 2.)))
-            self.specR[i,:] = 10**-7*1.57*np.multiply(self.RotationalS[i]*np.exp(-np.power(self.x_range_cm - self.Eigenvalues[i], 2.) / (2 * np.power(221.38, 2.))),self.x_range_cm)
+    def spectra_plot(self, shape = 'gaussian', FWHM_cm = None):
+        if FWHM_cm == None:
+            FWHM_cm = self.width_cm
+        if shape == 'gaussian':
+            self.x_range_cm = np.linspace(22500, 23700, 400)
+            self.x_range_nm = range(400)
+            for i in range(len(self.x_range_cm)):
+                self.x_range_nm[i] = 10**7/self.x_range_cm[i]
+            
+            self.specD = np.zeros((8,len(self.x_range_cm)))
+            self.specR = np.zeros((8,len(self.x_range_cm)))
+            for i in range(8):
+                self.specD[i,:] = self.DipoleS[i]*_gauss_shape(self.x_range_cm, self.Eigenvalues[i],FWHM_cm)
+                self.specR[i,:] = 10**-7*1.57*np.multiply(self.RotationalS[i]*_gauss_shape(self.x_range_cm, self.Eigenvalues[i],FWHM_cm),self.x_range_cm)
+        else:
+            raise ValueError("Selected shape ("+shape+') is not suported. Please refer to the manual for supprted shapes or use leave the varibel shape blank to use the default "gaussian" shape')
         return self.specD, self.specR, self.x_range_nm
-
+        
+        
+def _gauss_shape(x_range_cm, Eigenvalues,FWHM_cm):
+    return np.exp(-np.power(x_range_cm - Eigenvalues, 2.) / (2 * np.power(FWHM_cm/2.355, 2.)))
+    
     
 def kinetics_solve(k, length):
     import numpy as np
