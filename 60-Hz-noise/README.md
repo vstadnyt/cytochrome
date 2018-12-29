@@ -17,8 +17,7 @@ Example Usage:
 -----
 ```
 
-"""looks for .csv files makes a list
-goes through each entry in the list and processes it"""
+"""looks in the current directory for .csv files and processes each .csv file. The processed files are saved into new subdirectory \processed"""
 run_csv()
 ```
 
