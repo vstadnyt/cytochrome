@@ -1,16 +1,9 @@
 """
-
-#that should be it. YOu might need xlrd (pip install xlrd).
-this is to read excel files but I couldn't make it work. I am doing something
-wrong.
-
-
 You will need to run 'run_csv()' functiop. It will find all .csv files in the
 directory. You will need to get rid of everything but leave header, time and dA
 columns, see files in the folder.
 
 It will be more work to have this code to read excel files.
-
 
 Date: July 10, 2018
 Authors: By Jullian Ness, Valentyn Stadnytskyi
@@ -23,8 +16,6 @@ __version__ = '1.1'
 from numpy import loadtxt, transpose,argmax
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
-
-
 
 def excel_to_csv():
     """
